@@ -1,6 +1,6 @@
 "use client"
 
-import Publication from '@/components'
+import Post from '@/components/Post'
 import fetchNewsData from '@/services/fetchNewsData'
 import { useState, useEffect } from 'react'
 
@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       <main>
-        <Publication newsData={newsData} />
+        <Post newsData={newsData} />
       </main>
     </>
   )
