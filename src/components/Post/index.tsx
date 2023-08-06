@@ -46,14 +46,14 @@ export default function Post({ newsData, visibleItems, widthPost, heightPost, he
             ) : null}
 
             <div>
-              <h1 className="mb-2 text-[1.2rem] font-bold text-gray-900 dark:text-white">
+              <h1 className="mb-2 text-[1.2rem] font-bold text-gray-900 dark:text-white cursor-pointer">
                {item?.title?.length >= 50 ? `${item.title?.slice(0,50)}...` : item?.title}
               </h1>
               <p className="mb-3 text-[0.9rem] font-light text-gray-700 dark:text-gray-400">
                 {item?.description?.length >= 120 ? `${item.description?.slice(0,120)}...` : item?.description}
               </p>
 
-              <div className="flex flex-row justify-between items-center">
+              {/* <div className="flex flex-row justify-between items-center">
                 <div>
                   <p className="text-[0.7rem] text-gray-700 dark:text-gray-400">
                     {formattedDate(item?.publishedAt)}
@@ -70,7 +70,7 @@ export default function Post({ newsData, visibleItems, widthPost, heightPost, he
                   Ver mais
                   <AiOutlineArrowRight className="ml-1 w-[0.9rem] h-[0.9rem]" />
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </>
