@@ -4,16 +4,14 @@ import Post from '@/components/Post'
 import fetchNewsData from '@/services/fetchNewsData'
 import { useState, useEffect } from 'react'
 import { AiOutlineArrowDown } from "react-icons/ai";
+import Header from '@/components/Header';
 
 export default function Home() {
 
   const [newsData, setNewsData] = useState([]);
+  const [visibleItems, setVisibleItems] = useState(3);
 
-  const [visibleItems, setVisibleItems] = useState(3); // Number of items to display initially
-
-  const handleSeeMore = () => {
-    setVisibleItems((prev: any) => prev + 3); // Increase the number of visible items when "Ver mais" is clicked
-  };
+  const handleSeeMore = () => setVisibleItems((prev: number) => prev + 3);
 
   const loadData = async () => {
     const response = await fetchNewsData();
@@ -27,24 +25,47 @@ export default function Home() {
 
   return (
     <>
-    <main className='w-screen h-screen flex flex-col justify-start items-start'>
+      <Header />
 
-      <h1 className='text-[3rem] self-start font-bold'>News App</h1>
-
-      <div className='flex flex-row flex-wrap justify-center items-center items-stretch'>
-        <Post newsData={newsData} visibleItems={visibleItems} />
+      <h1 className='text-[3rem] text-center font-bold'>News App</h1>
+    
+      <div className='w-screen flex flex-row flex-wrap justify-center items-start bg-yellow-900'>
+        <Post
+          newsData={newsData}
+          visibleItems={1}
+          widthPost="max-w-[40rem]"
+          heightPost="max-h-[96rem]"
+          heightImagePost="h-96"
+        />
+        <Post
+          newsData={newsData}
+          visibleItems={1}
+          widthPost = "max-w-[20rem]"
+          heightPost = "max-h-[30rem]"
+          heightImagePost="h-48"
+        />
+      </div>
+      
+      <div className='w-screen h-full flex flex-row flex-wrap justify-center bg-blue-800'>
+        <Post
+          newsData={newsData}
+          visibleItems={visibleItems}
+          widthPost = "max-w-[20rem]"
+          heightPost = "max-h-[30rem]"
+          heightImagePost="h-48"
+        />
       </div>
 
-      {newsData?.length > visibleItems && (
-        <button
-          onClick={handleSeeMore}
-          className="inline-flex items-center px-3 py-2 mt-3 text-sm font-medium text-center text-white rounded-lg bg-blue-500"
-        >
-          Ver mais
-          <AiOutlineArrowDown className="ml-1 w-[1rem] h-[1rem] font-bold" />
-        </button>
-      )}
-    </main>
+        {newsData?.length > visibleItems && (
+          <button
+            onClick={handleSeeMore}
+            className="inline-flex items-center px-3 py-2 mt-3 text-sm font-medium text-center text-white rounded-lg bg-blue-500"
+          >
+            Ver mais
+            <AiOutlineArrowDown className="ml-1 w-[1rem] h-[1rem] font-bold" />
+          </button>
+        )}
+    
     </>
   )
 }

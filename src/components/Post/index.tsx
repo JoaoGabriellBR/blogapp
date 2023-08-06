@@ -13,23 +13,30 @@ interface NewsItem {
 interface PropsNewsItem {
   newsData: NewsItem[];
   visibleItems: number;
+  widthPost: string;
+  heightPost: string;
+  heightImagePost: string;
 }
 
-export default function Post({ newsData, visibleItems }: PropsNewsItem) {
+export default function Post({ newsData, visibleItems, widthPost, heightPost, heightImagePost }: PropsNewsItem) {
 
   const formattedDate = (date: string) => moment(date).format("ll");
 
   // ADICIONAR PROPS DE TAMANHO, COR E FUNDO DO POST PARA COLOCAR
   // POST EM DESTAQUE E ETC...
 
+  const postWidth = widthPost ? widthPost : "max-w-[20rem]";
+  const postHeight = heightPost ? heightPost : "max-h-[30rem]";
+  const postImageHeight = heightImagePost ? heightImagePost : "h-48";
+
   return (
     <>
       {newsData?.slice(0, visibleItems).map((item: any) => (
         <>
-          <div className="max-w-[20rem] max-h-[30rem] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-4">
+          <div className={`${postWidth} ${postHeight} bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-4`}>
             
             {item?.urlToImage ? (
-              <div className="w-full h-48 my-5">
+              <div className={`${postImageHeight} w-full my-5`}>
                 <img
                   className="rounded-t-lg object-cover w-full h-full"
                   src={item?.urlToImage}
