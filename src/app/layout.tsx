@@ -15,8 +15,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${poppins.className} bg-neutral-100 text-black mb-10`}>{children}</body>
+    <html lang="en" className='flex flex-col justify-center items-center'>
+      <body className={`${poppins.className} w-[80%] bg-neutral-100 text-black mb-10`}>
+        {children}
+      </body>
     </html>
   )
 }
