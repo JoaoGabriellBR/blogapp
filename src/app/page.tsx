@@ -20,7 +20,9 @@ export default function Home() {
 
   useEffect(() => {
     loadData();
-  }, [])
+  }, []);
+
+  const uniqueItem = newsData?.map((item) => item)[0]
 
 
   return (
@@ -29,7 +31,7 @@ export default function Home() {
 
       <h1 className='text-[3rem] text-center font-bold my-16'>News App</h1>
 
-      <div className='w-full flex flex-row flex-wrap justify-center items-start bg-yellow-900 space-x-0 md:space-x-6 my-16'>
+      <div className='w-full flex flex-row flex-wrap justify-center items-start space-x-0 md:space-x-6 my-16'>
         <Post
           newsData={newsData}
           visibleItems={1}
@@ -48,7 +50,7 @@ export default function Home() {
 
       <h1 className='text-[1.5rem] font-bold text-center mb-8'>Últimas noticias</h1>
 
-      <div className='w-full h-full flex flex-row flex-wrap justify-center bg-blue-800 space-x-0 md:space-x-6'>
+      <div className='w-full h-full flex flex-row flex-wrap justify-center space-x-0 md:space-x-6'>
         <Post
           newsData={newsData}
           visibleItems={visibleItems}
@@ -58,15 +60,20 @@ export default function Home() {
         />
       </div>
 
-      {newsData?.length > visibleItems && (
-        <button
-          onClick={handleSeeMore}
-          className="inline-flex items-center px-3 py-2 mt-3 text-sm font-medium text-center text-white rounded-lg bg-blue-500"
-        >
-          Ver mais
-          <AiOutlineArrowDown className="ml-1 w-[1rem] h-[1rem] font-bold" />
-        </button>
-      )}
+      <div className='flex flex-row justify-center items-center'>
+
+        {newsData?.length > visibleItems && (
+          <button
+            onClick={handleSeeMore}
+            className="inline-flex items-center px-3 py-2 mt-3 text-sm font-medium text-center text-white rounded-lg bg-blue-500"
+          >
+            Ver mais
+            <AiOutlineArrowDown className="ml-1 w-[1rem] h-[1rem] font-bold" />
+          </button>
+        )}
+      </div>
+
+      <h1>TESTE</h1>
 
     </>
   )
