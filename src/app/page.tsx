@@ -1,8 +1,8 @@
 "use client"
 
-import Post from '@/components/Post'
-import fetchNewsData from '@/services/fetchNewsData'
-import { useState, useEffect } from 'react'
+import Post from '@/components/Post';
+import fetchNewsData from '@/services/fetchNewsData';
+import { useState, useEffect } from 'react';
 import { AiOutlineArrowDown } from "react-icons/ai";
 import Header from '@/components/Header';
 import MainPost from '@/components/MainPost';
