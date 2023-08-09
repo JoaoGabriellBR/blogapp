@@ -2,7 +2,7 @@
 interface NewsItem {
     title: string;
     description: string;
-    urlToImage?: string;
+    image_url?: string;
     publishedAt: string;
     author: string;
 }
@@ -21,7 +21,7 @@ export default function MainPost({ newsData }: PropsNewsItem) {
                     <div className={`h-96 mb-6`}>
                         <img
                             className="rounded-t-lg object-cover w-full h-full"
-                            src={newsData?.urlToImage}
+                            src={newsData?.image_url}
                             alt="Imagem"
                         />
                     </div>
