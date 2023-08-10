@@ -42,9 +42,9 @@ export default function Home() {
       <Header />
       <div className='flex flex-col justify-start my-16'>
         <h1 className='text-[3rem] font-bold'>News App</h1>
-        <div>
+        {/* <div>
           <MainPost newsData={uniqueNewsItem} />
-        </div>
+        </div> */}
       </div>
 
 

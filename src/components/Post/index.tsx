@@ -19,7 +19,7 @@ export default function Post({ newsData, visibleItems }: PropsNewsItem) {
 
   return (
     <>
-      {newsData?.slice(0, visibleItems)?.filter((news: any) => news?.image_url !== null)?.map((item: any) => (
+      {newsData?.filter((news: any) => news?.image_url !== null)?.slice(0, visibleItems)?.map((item: any) => (
         <>
           <div className={`mb-10 w-full md:max-w-[20rem] max-h-[30rem] flex flex-col rounded-lg`}>
 

@@ -9,7 +9,6 @@ export default function PostWithoutImage({ newsData }: any) {
             {newsData?.filter((news: any) => news?.image_url === null)?.map((item: any) => (
                 <>
                     <div className={`mb-10 w-full md:max-w-[20rem] max-h-[30rem] flex flex-col rounded-lg`}>
-
                         <div>
                             <h1 className="mb-2 text-[1.2rem] font-bold">
                                 {item?.title?.length >= 50 ? `${item.title?.slice(0, 50)}...` : item?.title}
@@ -37,7 +36,6 @@ export default function PostWithoutImage({ newsData }: any) {
                                 <AiOutlineArrowRight className="ml-1 w-[0.9rem] h-[0.9rem]" />
                             </Link>
                         </div>
-
                     </div>
                 </>
             ))}
