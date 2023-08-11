@@ -10,10 +10,10 @@ export default function PostWithoutImage({ newsData }: any) {
                 <>
                     <div className={`mb-10 w-full md:max-w-[20rem] max-h-[30rem] flex flex-col rounded-lg`}>
                         <div>
-                            <h1 className="mb-2 text-[1.2rem] font-bold">
+                            <h1 className="mb-2 text-[1.2rem] font-bold hover:text-white cursor-pointer">
                                 {item?.title?.length >= 50 ? `${item.title?.slice(0, 50)}...` : item?.title}
                             </h1>
-                            <p className="mb-3 text-[0.9rem] font-light">
+                            <p className="mb-3 text-[0.9rem] font-light text-gray-400">
                                 {item?.description?.length >= 120 ? `${item.description?.slice(0, 120)}...` : item?.description}
                             </p>
                         </div>

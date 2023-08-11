@@ -41,15 +41,16 @@ export default function Home() {
 
       <Header />
       <div className='flex flex-col justify-start my-16'>
-        <h1 className='text-[3rem] font-bold'>News App</h1>
-        {/* <div>
+        <h1 className='text-[2.5rem] font-bold mb-10 w-full md:w-6/12'>Refreshing news for developers and designers</h1>
+        <div>
           <MainPost newsData={uniqueNewsItem} />
-        </div> */}
+        </div>
       </div>
 
 
       <div className='w-full h-full flex flex-col items-start'>
-        <h1 className='text-[1.5rem] font-bold text-start mb-8'>Últimas novidades</h1>
+        <h1 className='text-[1.5rem] font-bold text-start mb-4'>Últimas novidades</h1>
+        <hr className="w-full h-[1rem] mt-2 mb-4"></hr>
 
         <div className="w-full flex flex-col md:flex-row justify-between items-center">
 
