@@ -30,7 +30,7 @@ export default function Home() {
     <>
       <Header />
       <div className="flex flex-col justify-start my-16">
-        <h1 className="text-[2.5rem] font-bold mb-10 w-full md:w-6/12">
+        <h1 className="text-[2.5rem] font-bold mb-10 w-full md:w-7/12">
           Refreshing news for developers and designers
         </h1>
         <div>
@@ -39,12 +39,12 @@ export default function Home() {
       </div>
 
       <div className="w-full h-full flex flex-col items-start">
-        <h1 className="text-[1.5rem] font-bold text-start mb-4">
+        <h1 className="text-[1.5rem] font-bold text-start mb-5">
           Últimas novidades
         </h1>
-        <hr className="w-full h-[1rem] mt-2 mb-4"></hr>
+        <div className="w-full h-[0.1rem] mb-7 bg-neutral-700"></div>
 
-        <div className="w-full m-0 md:mr-10 flex flex-row flex-wrap justify-between items-stretch">
+        <div className="w-full m-0 md:mr-10 mb-4 flex flex-row flex-wrap justify-between items-stretch">
           <Post newsData={newsData} visibleItems={visibleItems} />
         </div>
 
