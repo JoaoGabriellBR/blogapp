@@ -8,6 +8,10 @@ import fetchNewsData from "@/services/fetchNewsData";
 import { useState, useEffect } from "react";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import axios from "axios";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 
 export default function Home() {
   const [newsData, setNewsData] = useState([]);
@@ -33,9 +37,9 @@ export default function Home() {
         <h1 className="text-[2.5rem] font-bold mb-10 w-full md:w-7/12">
           Refreshing news for developers and designers
         </h1>
-        <div>
+        <LazyLoadComponent>
           <MainPost newsData={uniqueNewsItem} />
-        </div>
+        </LazyLoadComponent>
       </div>
 
       <div className="w-full h-full flex flex-col items-start">
