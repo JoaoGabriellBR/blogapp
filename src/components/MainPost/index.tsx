@@ -29,7 +29,8 @@ export default function MainPost({ newsData }: PropsNewsItem) {
 
           <div className="w-full md:w-6/12 h-full ml-0 md:ml-[4rem] flex flex-col justify-between">
             <div>
-              <h1 className="mb-2 text-[1.2rem] font-bold hover:text-white cursor-pointer">
+              <span className="cursor-pointer bg-indigo-500 hover:bg-indigo-600 ease-in duration-200 text-white text-[0.7rem] font-semibold mr-2 px-2.5 py-1 rounded-full dark:bg-indigo-500 dark:text-white">{newsData?.category?.map((item: string) => item)}</span>
+              <h1 className="my-2 text-[1.2rem] font-bold hover:text-white cursor-pointer">
                 {newsData?.title}
               </h1>
               <p className="mb-3 text-[0.9rem] font-light text-gray-400">

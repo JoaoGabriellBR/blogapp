@@ -3,15 +3,13 @@
 import Header from "@/components/Header";
 import MainPost from "@/components/MainPost";
 import Post from "@/components/Post";
-import PostWithoutImage from "@/components/PostWithoutImage";
 import fetchNewsData from "@/services/fetchNewsData";
 import { useState, useEffect } from "react";
 import { AiOutlineArrowDown } from "react-icons/ai";
-import axios from "axios";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+// import axios from "axios";
+// import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-
 
 export default function Home() {
   const [newsData, setNewsData] = useState([]);
@@ -35,7 +33,7 @@ export default function Home() {
       <Header />
       <div className="flex flex-col justify-start my-16">
         <h1 className="text-[2.5rem] font-bold mb-10 w-full md:w-7/12">
-          Refreshing news for developers and designers
+           Seu destino ideal para notícias relevantes
         </h1>
         <LazyLoadComponent>
           <MainPost newsData={uniqueNewsItem} />

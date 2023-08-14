@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { AiOutlineArrowRight } from "react-icons/ai";
 import formattedDate from "@/services/formattedDate";
 import Link from "next/link";
 
@@ -40,8 +39,9 @@ export default function Post({ newsData, visibleItems }: PropsNewsItem) {
               ) : null}
 
               <div>
+                <span className="cursor-pointer bg-indigo-500 hover:bg-indigo-600 ease-in duration-200 text-white text-[0.7rem] font-semibold mr-2 px-2.5 py-1 rounded-full dark:bg-indigo-500 dark:text-white">{item?.category?.map((item: string) => item)}</span>
                 <Link href={item?.link}>
-                  <h1 className="mb-2 text-[1.2rem] font-bold hover:text-white cursor-pointer">
+                  <h1 className="my-2 text-[1.2rem] font-bold hover:text-white cursor-pointer">
                     {item?.title?.length >= 50
                       ? `${item.title?.slice(0, 50)}...`
                       : item?.title}
