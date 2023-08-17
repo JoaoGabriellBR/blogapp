@@ -19,14 +19,35 @@ export default function Home() {
 
   const loadData = async () => {
     const res = await fetchNewsData();
-    setNewsData(res?.data?.results);
+    setNewsData(res?.data?.response?.docs);
   };
-
+  
   useEffect(() => {
     loadData();
   }, []);
 
-  const uniqueNewsItem = newsData?.map((item) => item)[5];
+  useEffect(() => {
+    console.log(newsData.slice(0, 50))
+  }, [newsData])
+
+  // const uniqueNewsItem = newsData?.map((item) => item)[5];
+  // const abstract = newsData?.map((item) => item?.headline);
+  // const title = abstract?.map((item) => item?.main);
+  // const description = newsData?.map((item) => item?.snippet);
+  // const image = newsData?.map((item) => item?.multimedia?.map((i) => i?.url)[0]);
+  // const pubDate = newsData?.map((item) => item?.pub_date);
+  // const url = newsData?.map((item) => item?.url);
+  // const firstName = newsData?.map((item) => item?.byline?.person?.map((item) => item?.firstname)[0]);
+  // const lastName = newsData?.map((item) => item?.byline?.person?.map((item) => item?.lastname)[0]);
+
+  // const scriptPost = {
+  //   title: title,
+  //   description: description,
+  //   image: image,
+  //   pub_date: pubDate,
+  //   image_url: url,
+  //   author: `${firstName} ${lastName}`
+  // }
 
   return (
     <>
@@ -35,9 +56,9 @@ export default function Home() {
         <h1 className="text-[2.5rem] font-bold mb-10 w-full md:w-7/12">
            Seu destino ideal para notícias relevantes
         </h1>
-        <LazyLoadComponent>
+        {/* <LazyLoadComponent>
           <MainPost newsData={uniqueNewsItem} />
-        </LazyLoadComponent>
+        </LazyLoadComponent> */}
       </div>
 
       <div className="w-full h-full flex flex-col items-start">
@@ -47,7 +68,7 @@ export default function Home() {
         <div className="w-full h-[0.1rem] mb-7 bg-neutral-700"></div>
 
         <div className="w-full m-0 md:mr-10 mb-4 flex flex-row flex-wrap justify-between items-stretch">
-          <Post newsData={newsData} visibleItems={visibleItems} />
+          <Post newsData={newsData.slice(0, 50)} visibleItems={visibleItems} />
         </div>
 
         <div className="w-full flex flex-row justify-center items-center">
