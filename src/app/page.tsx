@@ -54,7 +54,7 @@ export default function Home() {
       <Header />
       <div className="flex flex-col justify-start my-16">
         <h1 className="text-[2.5rem] font-bold mb-10 w-full md:w-7/12">
-           Seu destino ideal para notícias relevantes
+          Seu destino ideal para notícias relevantes
         </h1>
         {/* <LazyLoadComponent>
           <MainPost newsData={uniqueNewsItem} />
@@ -68,7 +68,9 @@ export default function Home() {
         <div className="w-full h-[0.1rem] mb-7 bg-neutral-700"></div>
 
         <div className="w-full m-0 md:mr-10 mb-4 flex flex-row flex-wrap justify-between items-stretch">
-          <Post newsData={newsData.slice(0, 50)} visibleItems={visibleItems} />
+          {newsData.slice(0, 10)?.map((news) => (
+            <Post news={news} visibleItems={visibleItems} />
+          ))}
         </div>
 
         <div className="w-full flex flex-row justify-center items-center">
