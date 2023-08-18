@@ -6,10 +6,11 @@ import Post from "@/components/Post";
 import fetchNewsData from "@/services/fetchNewsData";
 import { useState, useEffect } from "react";
 import { AiOutlineArrowDown } from "react-icons/ai";
+import { NewsItem, PropsNewsItem } from "@/services/Interfaces/newsItem";
 // import axios from "axios";
 // import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { LazyLoadComponent } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+// import { LazyLoadComponent } from 'react-lazy-load-image-component';
+// import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function Home() {
   const [newsData, setNewsData] = useState([]);
@@ -27,27 +28,8 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    console.log(newsData.slice(0, 50))
+    console.log(newsData.slice(0, 10))
   }, [newsData])
-
-  // const uniqueNewsItem = newsData?.map((item) => item)[5];
-  // const abstract = newsData?.map((item) => item?.headline);
-  // const title = abstract?.map((item) => item?.main);
-  // const description = newsData?.map((item) => item?.snippet);
-  // const image = newsData?.map((item) => item?.multimedia?.map((i) => i?.url)[0]);
-  // const pubDate = newsData?.map((item) => item?.pub_date);
-  // const url = newsData?.map((item) => item?.url);
-  // const firstName = newsData?.map((item) => item?.byline?.person?.map((item) => item?.firstname)[0]);
-  // const lastName = newsData?.map((item) => item?.byline?.person?.map((item) => item?.lastname)[0]);
-
-  // const scriptPost = {
-  //   title: title,
-  //   description: description,
-  //   image: image,
-  //   pub_date: pubDate,
-  //   image_url: url,
-  //   author: `${firstName} ${lastName}`
-  // }
 
   return (
     <>
@@ -68,8 +50,8 @@ export default function Home() {
         <div className="w-full h-[0.1rem] mb-7 bg-neutral-700"></div>
 
         <div className="w-full m-0 md:mr-10 mb-4 flex flex-row flex-wrap justify-between items-stretch">
-          {newsData.slice(0, 10)?.map((news) => (
-            <Post news={news} visibleItems={visibleItems} />
+          {newsData.slice(0, 10)?.map((news: NewsItem) => (
+            <Post key={news?._id} news={news} visibleItems={visibleItems} />
           ))}
         </div>
 
