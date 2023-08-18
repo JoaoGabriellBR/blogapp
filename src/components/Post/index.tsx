@@ -40,7 +40,7 @@ export default function Post({ news, visibleItems }: PropsNewsItem) {
           </p>
         </div>
 
-        <div className="flex flex-row justify-between items-center">
+        <div>
           <p className="text-[0.7rem] text-gray-400">
             {formattedDate(pubDate)}
           </p>
