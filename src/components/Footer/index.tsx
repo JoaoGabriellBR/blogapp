@@ -4,13 +4,13 @@ import { MdEmail } from "react-icons/md";
 
 export default function Footer() {
   const divIconsStyle =
-    "w-8 h-8 flex justify-center items-center bg-indigo-500 rounded-full cursor-pointer";
-  const iconsStyle = "w-4 h-4 font-bold text-white";
+    "w-10 h-10 flex justify-center items-center rounded-full cursor-pointer text-indigo-500 dark:border-gray-800 dark:bg-neutral-800 border border-gray-100 hover:bg-indigo-500 hover:text-white";
+  const iconsStyle = "w-5 h-5 font-bold";
 
   return (
     <footer className="w-full">
       <div className="max-w-6xl mx-auto h-[0.1rem] bg-neutral-700"></div>
-      <div className="py-7 max-w-6xl mx-auto px-4 sm:px-6 flex flex-row justify-between items-center">
+      <div className="py-14 max-w-6xl mx-auto px-4 sm:px-6 flex flex-row justify-between items-center">
         <div className="flex flex-row justify-between items-center space-x-1">
           <TbWorldBolt className="text-indigo-400 text-[1rem] font-bold" />
           <h1 className="font-black">
