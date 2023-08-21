@@ -8,6 +8,7 @@ import { NewsItem } from "@/services/Interfaces";
 import { motion } from "framer-motion";
 import Pagination from "@/components/Pagination";
 import Loading from "@/components/Loading";
+import axios from "axios";
 // import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 export default function Main() {
@@ -17,9 +18,12 @@ export default function Main() {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5; // Replace with the total number of pages
 
-  const handlePageChange = (pageNumber: number) => {
+  const handlePageChange = async (pageNumber: number) => {
     setCurrentPage(pageNumber);
-    // You can implement your logic here to fetch data for the new page
+    const apiKey = "WCwDGgHrj9SFZsmhgzB2d4nvozkkZwOG";
+    const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Science")&api-key=${apiKey}&page=${pageNumber}`);
+    setNewsData(res?.data?.response?.docs?.reverse());
+    console.log(res);
   };
 
   const loadData = async () => {
