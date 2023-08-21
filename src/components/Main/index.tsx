@@ -1,6 +1,5 @@
 "use client";
 
-import Header from "@/components/Header";
 import MainPost from "@/components/MainPost";
 import Post from "@/components/Post";
 import fetchNewsData from "@/services/fetchNewsData";
@@ -8,6 +7,7 @@ import { useState, useEffect } from "react";
 import { NewsItem } from "@/services/Interfaces";
 import { motion } from "framer-motion";
 import Pagination from "@/components/Pagination";
+import Loading from "@/components/Loading";
 // import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 export default function Main() {
@@ -38,15 +38,11 @@ export default function Main() {
     loadData();
   }, []);
 
-  useEffect(() => {
-    console.log(newsData);
-  }, [newsData]);
-
   return (
     <>
       <main className="max-w-6xl mx-auto px-4 sm:px-6">
         {loading ? (
-          <h1>Carregando...</h1>
+          <Loading color="bg-indigo-500" size="w-3 h-3"/>
         ) : (
           <>
             <motion.div

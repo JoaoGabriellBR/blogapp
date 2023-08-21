@@ -13,7 +13,7 @@ export default function Header() {
             World<span className="font-extralight">News</span>
           </h1>
         </div>
-
+        
         <nav>
           <Dropdown />
         </nav>
