@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
 import { postCategories } from "@/services/postCategories";
 
-const Dropdown = () => {
+export default function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
@@ -13,7 +13,7 @@ const Dropdown = () => {
     <div className="relative">
       <motion.button
         onMouseEnter={toggleDropdown}
-        className="flex flex-row justify-between items-center bg-transparent py-2 px-4 rounded-lg focus:outline-none"
+        className="text-md flex flex-row justify-between items-center bg-transparent py-2 px-4 rounded-lg focus:outline-none hover:text-white"
         initial="closed"
         animate={isOpen ? "open" : "closed"}
       >
@@ -53,6 +53,3 @@ const Dropdown = () => {
     </div>
   );
 };
-
-export default Dropdown;
-
