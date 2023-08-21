@@ -40,7 +40,7 @@ export default function Main() {
 
   return (
     <>
-      <main className="max-w-6xl mx-auto px-4 sm:px-6">
+      <main className="max-w-6xl mx-auto px-4 pb-7 sm:px-6 mb-10">
         {loading ? (
           <Loading color="bg-indigo-500" size="w-3 h-3"/>
         ) : (
@@ -60,9 +60,14 @@ export default function Main() {
             </motion.div>
 
             <div className="w-full h-full flex flex-col items-start">
-              <h1 className="text-[1.5rem] font-bold text-start mb-5">
+              <motion.h1 
+              className="text-[1.5rem] font-bold text-start mb-5"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.3 }}
+              >
                 Últimas novidades
-              </h1>
+              </motion.h1>
               <div className="w-full h-[0.1rem] mb-7 bg-neutral-700"></div>
 
               <div className="w-full m-0 md:mr-10 mb-4 flex flex-row flex-wrap justify-between items-stretch">
