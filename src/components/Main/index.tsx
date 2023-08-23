@@ -12,10 +12,12 @@ import axios from "axios";
 // import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 export default function Main() {
-  const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [newsData, setNewsData] = useState([]);
+  const [newsCategory, setNewsCategory] = useState<string>('Food');
 
   const [currentPage, setCurrentPage] = useState(1);
+
   const totalPages = 5; // Replace with the total number of pages
 
   const handlePageChange = async (pageNumber: number) => {
@@ -29,7 +31,7 @@ export default function Main() {
   const loadData = async () => {
     setLoading(true);
     try {
-      const res = await fetchNewsData();
+      const res = await fetchNewsData(newsCategory);
       setNewsData(res?.data?.response?.docs?.reverse());
       setLoading(false);
     } catch (err) {

@@ -1,12 +1,14 @@
-import api from "./api.jsx";
 import axios from "axios";
 
-export default async function fetchNewsData() {
+export default async function fetchNewsData({ newsCategory }: any) {
   try {
     const res = await axios({
       method: "GET",
       url: "/noticias",
-      headers: { "Access-Control-Allow-Origin": "*" },
+      headers: { 
+        "Access-Control-Allow-Origin": "*",
+        "category": newsCategory
+      },
     });
     return res?.data;
   } catch (err) {
