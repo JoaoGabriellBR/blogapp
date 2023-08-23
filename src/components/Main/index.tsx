@@ -15,7 +15,7 @@ export default function Main() {
   const [loading, setLoading] = useState(false);
   const [newsData, setNewsData] = useState([]);
   const [newsCategory, setNewsCategory] = useState<string>('Food');
-
+  
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = 5; // Replace with the total number of pages
