@@ -20,9 +20,11 @@ export default function Footer() {
       <div className="py-14 max-w-6xl px-0 md:px-6 mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="flex flex-row justify-between items-center space-x-1">
           <TbWorldBolt className="text-indigo-400 text-[1rem] font-bold" />
-          <h1 className="font-black">
-            World<span className="font-extralight">News</span>
-          </h1>
+          <Link href="/">
+            <h1 className="font-black cursor-pointer">
+              World<span className="font-extralight">News</span>
+            </h1>
+          </Link>
         </div>
 
         <nav className="flex flex-row justify-between items-center space-x-3 mt-5 md:mt-0">
