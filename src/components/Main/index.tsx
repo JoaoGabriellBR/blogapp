@@ -25,7 +25,7 @@ export default function Main() {
     const apiKey = "WCwDGgHrj9SFZsmhgzB2d4nvozkkZwOG";
     const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Science")&api-key=${apiKey}&page=${pageNumber}`);
     setNewsData(res?.data?.response?.docs?.reverse());
-    console.log(res);
+    // console.log(res);
   };
 
   const loadData = async () => {
