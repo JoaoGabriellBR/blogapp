@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
 import { postCategories } from "@/services/postCategories";
+import { useNewsCategory } from "@/context";
 
 export default function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
   const closeDropdown = () => setIsOpen(false);
+
+  const { newsCategory, updateNewsCategory }: any = useNewsCategory();
 
   return (
     <div className="relative">
@@ -42,6 +45,10 @@ export default function Dropdown() {
                 <li
                   key={category?.value}
                   className="text-sm px-4 py-2 hover:text-indigo-500 cursor-pointer"
+                  onClick={() => {
+                    updateNewsCategory(category?.value);
+                    closeDropdown();
+                  }}
                 >
                   {category?.title}
                 </li>

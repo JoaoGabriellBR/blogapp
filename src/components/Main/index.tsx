@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useNewsCategory } from "@/context";
 import MainPost from "@/components/MainPost";
 import Post from "@/components/Post";
 import Pagination from "@/components/Pagination";
@@ -13,7 +14,7 @@ import axios from "axios";
 export default function Main() {
   const [loading, setLoading] = useState(false);
   const [newsData, setNewsData] = useState<NewsItem[]>([]);
-  const [newsCategory, setNewsCategory] = useState<string>('Food');
+  const { newsCategory }: any = useNewsCategory();
 
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5; // Replace with the total number of pages
@@ -41,7 +42,7 @@ export default function Main() {
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [newsCategory]);
 
   return (
     <>
