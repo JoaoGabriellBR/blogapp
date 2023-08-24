@@ -3,10 +3,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import { useEffect } from 'react'
-
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const poppins = Poppins({ subsets: ["latin"], weight: "300" });
 
@@ -14,7 +13,6 @@ export const metadata: Metadata = {
   title: "WorldNews",
   description: "Criado por João Gabriel Silva",
 };
-
 
 export default function RootLayout({
   children,

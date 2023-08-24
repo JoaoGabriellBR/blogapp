@@ -17,7 +17,6 @@ export default function Main() {
   const [newsCategory, setNewsCategory] = useState<string>('Food');
   
   const [currentPage, setCurrentPage] = useState(1);
-
   const totalPages = 5; // Replace with the total number of pages
 
   const handlePageChange = async (pageNumber: number) => {
@@ -25,7 +24,7 @@ export default function Main() {
     const apiKey = "WCwDGgHrj9SFZsmhgzB2d4nvozkkZwOG";
     const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Science")&api-key=${apiKey}&page=${pageNumber}`);
     setNewsData(res?.data?.response?.docs?.reverse());
-    // console.log(res);
+    console.log(newsData?.length);
   };
 
   const loadData = async () => {
@@ -51,19 +50,19 @@ export default function Main() {
           <Loading color="bg-indigo-500" size="w-3 h-3"/>
         ) : (
           <>
-            <motion.div
+            <div
               className="flex flex-col justify-start my-16"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3 }}
+              // initial={{ opacity: 0, y: 40 }}
+              // animate={{ opacity: 1, y: 0 }}
+              // transition={{ duration: 1.3 }}
             >
-              <h1 className="text-[2.5rem] font-bold mb-10 w-full md:w-7/12">
+              <h1 className="text-[2.5rem] font-bold mb-10 w-full md:w-7/12" data-aos="fade-right">
                 Seu destino ideal para notícias relevantes
               </h1>
               <MainPost
-                news={newsData?.filter((i) => i?.multimedia?.length !== 0)[0]}
+                news={newsData?.filter((news) => news?.multimedia?.length !== 0)[0]}
               />
-            </motion.div>
+            </div>
 
             <div className="w-full h-full flex flex-col items-start">
               <motion.h1 

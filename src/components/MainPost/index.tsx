@@ -15,7 +15,7 @@ export default function MainPost({ news }: PropsNewsItem) {
 
   return (
     <>
-      <div className="w-full min-h-[14rem]">
+      <div className="w-full min-h-[14rem]" data-aos="fade-right">
         <div className=" w-full h-full md:h-[15rem] flex flex-col md:flex-row justify-between items-start md:items-center">
           <div className="w-full md:w-6/12 h-full relative overflow-hidden cursor-pointer mb-6 md:mb-0">
             <img
