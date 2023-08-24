@@ -10,8 +10,9 @@ export const postCategories = [
   { title: "Filmes", value: "Movies" },
   { title: "Moda", value: "Fashion" },
   { title: "Negócios", value: "Business" },
-  { title: "Opinião", value: "Opinion" },
+  { title: "Opinião", value: "Express" },
   { title: "Política", value: "Politics" },
   { title: "Saúde", value: "Health" },
   { title: "Tecnologia", value: "Technology" },
+  { title: "Mundo", value: "World" }
 ];

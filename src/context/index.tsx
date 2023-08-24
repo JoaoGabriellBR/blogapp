@@ -5,7 +5,7 @@ import { PropsWithChildren, createContext, useContext, useState } from 'react';
 const NewsCategoryContext = createContext(null);
 
 export const NewsCategoryProvider = ({ children }: any) => {
-  const [newsCategory, setNewsCategory] = useState<string>('Food');
+  const [newsCategory, setNewsCategory] = useState<string>('Technology');
 
   const updateNewsCategory = (category: string) => {
     setNewsCategory(category);
