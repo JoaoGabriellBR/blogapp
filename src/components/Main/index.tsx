@@ -1,30 +1,30 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import MainPost from "@/components/MainPost";
 import Post from "@/components/Post";
-import fetchNewsData from "@/services/fetchNewsData";
-import { useState, useEffect } from "react";
-import { NewsItem } from "@/services/Interfaces";
-import { motion } from "framer-motion";
 import Pagination from "@/components/Pagination";
 import Loading from "@/components/Loading";
+import fetchNewsData from "@/services/fetchNewsData";
+import { NewsItem } from "@/services/Interfaces";
+import { motion } from "framer-motion";
 import axios from "axios";
-// import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 export default function Main() {
   const [loading, setLoading] = useState(false);
-  const [newsData, setNewsData] = useState([]);
+  const [newsData, setNewsData] = useState<NewsItem[]>([]);
   const [newsCategory, setNewsCategory] = useState<string>('Food');
-  
+
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5; // Replace with the total number of pages
 
   const handlePageChange = async (pageNumber: number) => {
     setCurrentPage(pageNumber);
     const apiKey = "WCwDGgHrj9SFZsmhgzB2d4nvozkkZwOG";
-    const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Science")&api-key=${apiKey}&page=${pageNumber}`);
+    const apiURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:(${newsCategory})&api-key=${apiKey}&page=${pageNumber}`
+    const res = await axios.get(apiURL);
     setNewsData(res?.data?.response?.docs?.reverse());
-    console.log(newsData?.length);
+    // console.log(newsData?.length);
   };
 
   const loadData = async () => {
@@ -47,15 +47,11 @@ export default function Main() {
     <>
       <main className="max-w-6xl mx-auto px-4 pb-7 sm:px-6 mb-10">
         {loading ? (
-          <Loading color="bg-indigo-500" size="w-3 h-3"/>
+          <Loading color="bg-indigo-500" size="w-3 h-3" />
         ) : (
           <>
             <div
-              className="flex flex-col justify-start my-16"
-              // initial={{ opacity: 0, y: 40 }}
-              // animate={{ opacity: 1, y: 0 }}
-              // transition={{ duration: 1.3 }}
-            >
+              className="flex flex-col justify-start my-16">
               <h1 className="text-[2.5rem] font-bold mb-10 w-full md:w-7/12" data-aos="fade-right">
                 Seu destino ideal para notícias relevantes
               </h1>
@@ -65,11 +61,11 @@ export default function Main() {
             </div>
 
             <div className="w-full h-full flex flex-col items-start">
-              <motion.h1 
-              className="text-[1.5rem] font-bold text-start mb-5"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.3 }}
+              <motion.h1
+                className="text-[1.5rem] font-bold text-start mb-5"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.3 }}
               >
                 Últimas novidades
               </motion.h1>

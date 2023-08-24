@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default async function fetchNewsData({ newsCategory }: any) {
+export default async function fetchNewsData(newsCategory: string) {
   try {
     const res = await axios({
       method: "GET",
