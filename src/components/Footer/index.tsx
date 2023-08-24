@@ -14,7 +14,7 @@ export default function Footer() {
   const gitHub = "https://github.com/JoaoGabriellBR";
 
   return (
-    <footer className="w-full">
+    <footer className="w-full" data-aos="fade-right">
       <div className="max-w-6xl mx-auto h-[0.1rem] bg-neutral-700"></div>
 
       <div className="py-14 max-w-6xl px-0 md:px-6 mx-auto flex flex-col md:flex-row justify-between items-center">

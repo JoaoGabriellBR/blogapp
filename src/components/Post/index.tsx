@@ -24,6 +24,7 @@ export default function Post({ news }: PropsNewsItem) {
     <>
       <div
         className={`mb-10 w-full md:max-w-[20rem] max-h-[30rem] flex flex-col rounded-lg`}
+        data-aos="fade-right"
       >
         {image && (
           <div
