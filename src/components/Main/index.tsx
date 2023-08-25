@@ -9,7 +9,7 @@ import Loading from "@/components/Loading";
 import fetchNewsData from "@/services/fetchNewsData";
 import { NewsItem } from "@/services/Interfaces";
 import { motion } from "framer-motion";
-// import axios from "axios";
+import axios from "axios";
 
 export default function Main() {
   const [loading, setLoading] = useState(false);
@@ -21,11 +21,10 @@ export default function Main() {
 
   const handlePageChange = async (pageNumber: number) => {
     setCurrentPage(pageNumber);
-    loadData();
-    // const apiKey = "WCwDGgHrj9SFZsmhgzB2d4nvozkkZwOG";
-    // const apiURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=section_name:(${newsCategory})&api-key=${apiKey}&page=${currentPage}`
-    // const res = await axios.get(apiURL);
-    // setNewsData(res?.data?.response?.docs?.reverse());
+    const apiKey = "WCwDGgHrj9SFZsmhgzB2d4nvozkkZwOG";
+    const apiURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=section_name:(${newsCategory})&api-key=${apiKey}&page=${currentPage}`
+    const res = await axios.get(apiURL);
+    setNewsData(res?.data?.response?.docs?.reverse());
   };
 
   const loadData = async () => {
@@ -43,8 +42,6 @@ export default function Main() {
   useEffect(() => {
     loadData();
   }, [newsCategory]);
-
-  // console.log(!newsData?.length && 'NAO POSSUI DADOS');
 
   return (
     <>

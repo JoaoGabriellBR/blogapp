@@ -1,15 +1,14 @@
 "use client"
 
-import { PropsWithChildren, createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
+import { NewsCategory } from '@/services/Interfaces';
 
-const NewsCategoryContext = createContext(null);
+const NewsCategoryContext = createContext<NewsCategory | null>(null);
 
 export const NewsCategoryProvider = ({ children }: any) => {
-  const [newsCategory, setNewsCategory] = useState<string>('Technology');
 
-  const updateNewsCategory = (category: string) => {
-    setNewsCategory(category);
-  };
+  const [newsCategory, setNewsCategory] = useState<string>('Technology');
+  const updateNewsCategory = (category: string) => setNewsCategory(category);
 
   return (
     <NewsCategoryContext.Provider value={{ newsCategory, updateNewsCategory }}>
@@ -18,6 +17,4 @@ export const NewsCategoryProvider = ({ children }: any) => {
   );
 };
 
-export const useNewsCategory = () => {
-  return useContext(NewsCategoryContext);
-};
+export const useNewsCategory = () => useContext(NewsCategoryContext);

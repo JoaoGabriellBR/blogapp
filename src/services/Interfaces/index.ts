@@ -23,3 +23,8 @@ export interface PropsPagination {
   totalPages: number;
   onPageChange: (value: number) => void;
 }
+
+export interface NewsCategory {
+  newsCategory: string;
+  updateNewsCategory: (category: string) => void;
+}

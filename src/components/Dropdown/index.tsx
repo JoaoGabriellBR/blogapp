@@ -7,15 +7,20 @@ import { useNewsCategory } from "@/context";
 export default function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleDropdown = () => setIsOpen(!isOpen);
+  const openDropdown = () => setIsOpen(!isOpen);
   const closeDropdown = () => setIsOpen(false);
 
   const { newsCategory, updateNewsCategory }: any = useNewsCategory();
 
+  const handleClickCategory = (value: string) => {
+    updateNewsCategory(value);
+    closeDropdown();
+  }
+
   return (
     <div className="relative">
       <motion.button
-        onMouseEnter={toggleDropdown}
+        onMouseEnter={openDropdown}
         className="text-md flex flex-row justify-between items-center bg-transparent py-2 px-4 rounded-lg focus:outline-none hover:text-white"
         initial="closed"
         animate={isOpen ? "open" : "closed"}
@@ -45,10 +50,7 @@ export default function Dropdown() {
                 <li
                   key={category?.value}
                   className="text-sm px-4 py-2 hover:text-indigo-500 cursor-pointer"
-                  onClick={() => {
-                    updateNewsCategory(category?.value);
-                    closeDropdown();
-                  }}
+                  onClick={() => handleClickCategory(category?.value)}
                 >
                   {category?.title}
                 </li>
