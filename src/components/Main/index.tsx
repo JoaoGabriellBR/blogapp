@@ -14,9 +14,9 @@ import axios from "axios";
 export default function Main() {
   const [loading, setLoading] = useState(false);
   const [newsData, setNewsData] = useState<NewsItem[]>([]);
-  const { newsCategory }: any = useNewsCategory();
+  const { newsCategory, currentPage, setCurrentPage }: any = useNewsCategory();
 
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5; // Replace with the total number of pages
 
   const handlePageChange = async (pageNumber: number) => {

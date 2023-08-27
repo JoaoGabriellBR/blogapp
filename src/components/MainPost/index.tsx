@@ -17,7 +17,7 @@ export default function MainPost({ news }: PropsNewsItem) {
     <>
       <div className="w-full min-h-[14rem]" data-aos="fade-up">
         <div className=" w-full h-full md:h-[15rem] flex flex-col md:flex-row justify-between items-start md:items-center">
-          <div className="w-full md:w-6/12 h-full relative overflow-hidden cursor-pointer mb-6 md:mb-0">
+          <div className="w-full md:w-6/12 h-full relative overflow-hidden mb-6 md:mb-0">
             <img
               className="rounded-t-lg object-cover w-full h-full transition-transform duration-300 ease-in-out transform-gpu hover:scale-105"
               src={`https://www.nytimes.com/${image}`}

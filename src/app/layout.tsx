@@ -10,7 +10,7 @@ import 'aos/dist/aos.css';
 const poppins = Poppins({ subsets: ["latin"], weight: "300" });
 
 export const metadata: Metadata = {
-  title: "WorldNews",
+  title: "World News",
   description: "Criado por João Gabriel Silva",
 };
 

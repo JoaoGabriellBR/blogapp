@@ -27,9 +27,7 @@ export default function Post({ news }: PropsNewsItem) {
         data-aos="fade-up"
       >
         {image && (
-          <div
-            className={`h-48 w-full mb-6 relative overflow-hidden cursor-pointer`}
-          >
+          <div className={`h-48 w-full mb-6 relative overflow-hidden`}>
             <img
               className="rounded-t-lg object-cover w-full h-full transition-transform duration-300 ease-in-out transform-gpu hover:scale-105"
               src={`https://www.nytimes.com/${image}`}
