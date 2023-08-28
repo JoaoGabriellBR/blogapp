@@ -21,10 +21,17 @@ export default function Main() {
 
   const handlePageChange = async (pageNumber: number) => {
     setCurrentPage(pageNumber);
-    const apiKey = "WCwDGgHrj9SFZsmhgzB2d4nvozkkZwOG";
-    const apiURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=section_name:(${newsCategory})&api-key=${apiKey}&page=${currentPage}`
-    const res = await axios.get(apiURL);
-    setNewsData(res?.data?.response?.docs?.reverse());
+    setLoading(true)
+    try{
+      const apiKey = "WCwDGgHrj9SFZsmhgzB2d4nvozkkZwOG";
+      const apiURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=section_name:(${newsCategory})&api-key=${apiKey}&page=${currentPage}`
+      const res = await axios.get(apiURL);
+      setNewsData(res?.data?.response?.docs?.reverse());
+    }catch(err){
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const loadData = async () => {

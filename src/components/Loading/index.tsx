@@ -5,7 +5,7 @@ export default function Loading({ color, size }: any) {
   } ${size ? size : "w-4 h-4"}`;
 
   return (
-    <div className="flex items-center justify-center space-x-2">
+    <div className="flex items-center justify-center space-x-2 h-screen">
       <div className={styles}></div>
       <div className={styles}></div>
       <div className={styles}></div>

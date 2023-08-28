@@ -20,9 +20,10 @@ export default function Dropdown() {
 
   return (
     <div className="relative">
-      <motion.button
+      <motion.p
         onMouseEnter={openDropdown}
-        className="text-md flex flex-row justify-between items-center bg-transparent py-2 px-4 rounded-lg focus:outline-none hover:text-white"
+        // className="text-md flex flex-row justify-between items-center bg-transparent py-2 px-4 rounded-lg focus:outline-none hover:text-white"
+        className="hidden md:flex flex-row justify-between items-center text-sm px-4 py-2 hover:white cursor-pointer"
         initial="closed"
         animate={isOpen ? "open" : "closed"}
       >
@@ -35,7 +36,7 @@ export default function Dropdown() {
         >
           <IoIosArrowDown />
         </motion.span>
-      </motion.button>
+      </motion.p>
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -47,7 +48,7 @@ export default function Dropdown() {
             transition={{ delay: 0.1, duration: 0.3 }}
           >
             <ul className="py-2 text-white dark:bg-neutral-800">
-              {postCategories?.map((category) => (
+              {postCategories?.slice(5)?.map((category) => (
                 <li
                   key={category?.value}
                   className="text-sm px-4 py-2 hover:text-indigo-500 cursor-pointer"
