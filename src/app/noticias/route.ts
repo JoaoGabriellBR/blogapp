@@ -3,13 +3,13 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET( request: NextRequest) {
     
     const category = request.headers.get("category");
-    // const newsCategory = category !== null ? `&fq=section_name:${category}` : '';
-    const newsCategory = !category ? '' : `&fq=section_name:${category}`
-    
     const apiKey = "WCwDGgHrj9SFZsmhgzB2d4nvozkkZwOG";
-    const apiURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?${newsCategory}&api-key=${apiKey}&page=1`;
+    
+    const apiWithCategory = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&fq=section_name:${category}&api-key=${apiKey}&page=1`;
+    const apiWithoutCategory = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&api-key=${apiKey}&page=1`;
+    const apiUrl = category ? apiWithCategory : apiWithoutCategory
 
-    const res = await fetch(apiURL);
+    const res = await fetch(apiUrl);
     const data = await res.json();
     return NextResponse.json({ data });
 }

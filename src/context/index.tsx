@@ -7,7 +7,7 @@ const NewsCategoryContext = createContext<NewsCategory | null>(null);
 
 export const NewsCategoryProvider = ({ children }: any) => {
 
-  const [newsCategory, setNewsCategory] = useState<string>('Technology');
+  const [newsCategory, setNewsCategory] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const updateNewsCategory = (category: string) => setNewsCategory(category);

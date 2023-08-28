@@ -22,8 +22,12 @@ export default function Main() {
     setLoading(true)
     try{
       const apiKey = "WCwDGgHrj9SFZsmhgzB2d4nvozkkZwOG";
-      const apiURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=section_name:(${newsCategory})&api-key=${apiKey}&page=${currentPage}`
-      const res = await axios.get(apiURL);
+      // const apiURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=section_name:(${newsCategory})&api-key=${apiKey}&page=${currentPage}`
+      const apiWithCategory = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&fq=section_name:${newsCategory}&api-key=${apiKey}&page=${pageNumber}`;
+      const apiWithoutCategory = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&api-key=${apiKey}&page=${pageNumber}`;
+      const apiUrl = newsCategory ? apiWithCategory : apiWithoutCategory
+
+      const res = await axios.get(apiUrl);
       setNewsData(res?.data?.response?.docs?.reverse());
     }catch(err){
       console.log(err);

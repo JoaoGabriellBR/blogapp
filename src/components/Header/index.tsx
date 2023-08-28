@@ -38,10 +38,6 @@ export default function Header() {
           ))}
           <Dropdown />
         </nav>
-
-        <nav className="hidden md:flex" data-aos="fade-right">
-        </nav>
-
         <DropdownMobile />
       </div>
     </header>
