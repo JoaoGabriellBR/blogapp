@@ -26,7 +26,9 @@ export interface PropsPagination {
 
 export interface NewsCategory {
   newsCategory: string;
+  newsData: NewsItem[];
   currentPage: number;
   setCurrentPage: (currentPage: number) => void;
   updateNewsCategory: (category: string) => void;
+  updateNewsData: (news: any) => void;
 }

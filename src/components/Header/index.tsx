@@ -6,20 +6,27 @@ import { TbWorldBolt } from "react-icons/tb";
 import Link from "next/link";
 import { useNewsCategory } from "@/context";
 import { postCategories } from "@/services/postCategories";
+import fetchNewsData from "@/services/fetchNewsData";
 
 export default function Header() {
 
-  const { updateNewsCategory, setCurrentPage }: any = useNewsCategory();
+  const { updateNewsCategory, updateNewsData, setCurrentPage }: any = useNewsCategory();
 
   const handleClickCategory = (value: string) => {
     updateNewsCategory(value);
     setCurrentPage(1);
   }
 
+  const loadData = async () => {
+    const res = await fetchNewsData('');
+    updateNewsData(res?.data?.response?.docs);
+    setCurrentPage(1);
+  }
+
   return (
     <header className="py-7 w-full relative z-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-row justify-between items-center">
-        <div className="flex flex-row justify-between items-center space-x-1" data-aos="fade-right">
+        <div onClick={loadData} className="flex flex-row justify-between items-center space-x-1" data-aos="fade-right">
           <TbWorldBolt className="text-indigo-400 text-[1rem] font-bold" />
           <Link href="/">
             <h1 className="font-black cursor-pointer">

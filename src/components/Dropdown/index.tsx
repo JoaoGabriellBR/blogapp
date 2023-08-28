@@ -27,7 +27,7 @@ export default function Dropdown() {
         initial="closed"
         animate={isOpen ? "open" : "closed"}
       >
-        Categorias
+        Mais
         <motion.span
           className="ml-1"
           initial={{ rotate: 0 }}

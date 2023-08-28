@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -13,22 +14,21 @@ import axios from "axios";
 
 export default function Main() {
   const [loading, setLoading] = useState(false);
-  const [newsData, setNewsData] = useState<NewsItem[]>([]);
-  const { newsCategory, currentPage, setCurrentPage }: any = useNewsCategory();
+  const { newsCategory, newsData, updateNewsData, currentPage, setCurrentPage }: any = useNewsCategory();
   const totalPages = 5; 
 
   const handlePageChange = async (pageNumber: number) => {
     setCurrentPage(pageNumber);
     setLoading(true)
     try{
+      const baseUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
       const apiKey = "WCwDGgHrj9SFZsmhgzB2d4nvozkkZwOG";
-      // const apiURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=section_name:(${newsCategory})&api-key=${apiKey}&page=${currentPage}`
-      const apiWithCategory = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&fq=section_name:${newsCategory}&api-key=${apiKey}&page=${pageNumber}`;
-      const apiWithoutCategory = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&api-key=${apiKey}&page=${pageNumber}`;
-      const apiUrl = newsCategory ? apiWithCategory : apiWithoutCategory
-
+      const apiWithCategory = `${baseUrl}&fq=section_name:${newsCategory}&api-key=${apiKey}&page=${currentPage}`;
+      const apiWithoutCategory = `${baseUrl}&api-key=${apiKey}&page=${currentPage}`;
+      const apiUrl = newsCategory ? apiWithCategory : apiWithoutCategory;
+      
       const res = await axios.get(apiUrl);
-      setNewsData(res?.data?.response?.docs?.reverse());
+      updateNewsData(res?.data?.response?.docs?.reverse());
     }catch(err){
       console.log(err);
     } finally {
@@ -40,7 +40,7 @@ export default function Main() {
     setLoading(true);
     try {
       const res = await fetchNewsData(newsCategory);
-      setNewsData(res?.data?.response?.docs);
+      updateNewsData(res?.data?.response?.docs);
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -65,7 +65,7 @@ export default function Main() {
                 Seu destino ideal para notícias relevantes
               </h1>
               <MainPost
-                news={newsData?.filter((news) => news?.multimedia?.length !== 0)[0]}
+                news={newsData?.filter((news: any) => news?.multimedia?.length !== 0)[0]}
               />
             </div>
 
@@ -83,7 +83,7 @@ export default function Main() {
               <div className="w-full m-0 md:mr-10 mb-4 flex flex-row flex-wrap justify-between items-stretch">
                 {newsData
                   ?.slice(0, 10)
-                  ?.filter((item) => item?.multimedia?.length !== 0)
+                  ?.filter((item: any) => item?.multimedia?.length !== 0)
                   ?.map((news: NewsItem) => (
                     <>
                       <Post key={news?._id} news={news} />
