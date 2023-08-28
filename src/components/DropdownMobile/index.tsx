@@ -3,12 +3,21 @@ import { FiMenu } from "react-icons/fi";
 import { TfiClose } from "react-icons/tfi"
 import { motion, AnimatePresence } from "framer-motion";
 import { postCategories } from "@/services/postCategories";
+import { useNewsCategory } from "@/context";
 
 export default function DropdownMobile() {
 
     const [mobileMenu, setMobileMenu] = useState(false);
     const openMobileMenu = () => setMobileMenu(!mobileMenu);
     const closeMobileMenu = () => setMobileMenu(false);
+
+    const { updateNewsCategory, setCurrentPage }: any = useNewsCategory();
+
+    const handleClickCategory = (value: string) => {
+      updateNewsCategory(value);
+      setCurrentPage(1);
+      closeMobileMenu();
+    }
 
     return (
         <>
@@ -17,7 +26,7 @@ export default function DropdownMobile() {
                     onClick={openMobileMenu}
                     className="bg-transparent focus:outline-none"
                 >
-                    {!mobileMenu ? <FiMenu className="text-[1.2rem]" /> : null}
+                    {!mobileMenu ? <FiMenu className="text-[1.5rem]" /> : null}
                 </button>
             </div>
 
@@ -37,7 +46,7 @@ export default function DropdownMobile() {
                                     onClick={closeMobileMenu}
                                     className="bg-transparent focus:outline-none"
                                 >
-                                    <TfiClose className="text-[1.2rem]" />
+                                    <TfiClose className="text-[1.4rem]" />
                                 </button>
                             </div>
                             <div className="w-full h-[0.1rem] bg-neutral-700"></div>
@@ -48,6 +57,7 @@ export default function DropdownMobile() {
                                 <li
                                     key={category?.value}
                                     className="text-sm py-2 hover:text-indigo-500 cursor-pointer"
+                                    onClick={() => handleClickCategory(category?.value)}
                                 >
                                     {category?.title}
                                 </li>

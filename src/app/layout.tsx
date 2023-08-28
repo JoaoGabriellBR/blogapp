@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.className} bg-neutral-900 tracking-wide text-gray-300`}
+        className={`${poppins.className} bg-zinc-900 tracking-wide text-gray-200`}
       >
         {children}
       </body>

@@ -10,7 +10,7 @@ export default function Dropdown() {
   const openDropdown = () => setIsOpen(!isOpen);
   const closeDropdown = () => setIsOpen(false);
 
-  const { newsCategory, updateNewsCategory, setCurrentPage }: any = useNewsCategory();
+  const { updateNewsCategory, setCurrentPage }: any = useNewsCategory();
 
   const handleClickCategory = (value: string) => {
     updateNewsCategory(value);
