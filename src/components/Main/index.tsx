@@ -11,13 +11,14 @@ import { NewsItem } from "@/services/Interfaces";
 import axios from "axios";
 
 export default function Main() {
-  const [loading, setLoading] = useState(false);
   const {
     newsCategory,
     newsData,
     updateNewsData,
     currentPage,
-    setCurrentPage
+    setCurrentPage,
+    loading,
+    setLoading,
   }: any = useNewsCategory();
   const newsWithImage = newsData?.filter(
     (news: any) => news?.multimedia?.length !== 0

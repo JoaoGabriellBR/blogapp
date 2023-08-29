@@ -10,7 +10,7 @@ import fetchNewsData from "@/services/fetchNewsData";
 
 export default function Header() {
 
-  const { updateNewsCategory, updateNewsData, setCurrentPage }: any = useNewsCategory();
+  const { updateNewsCategory, updateNewsData, setCurrentPage, setLoading }: any = useNewsCategory();
 
   const handleClickCategory = (value: string) => {
     updateNewsCategory(value);
@@ -18,9 +18,16 @@ export default function Header() {
   }
 
   const loadData = async () => {
-    const res = await fetchNewsData('');
-    updateNewsData(res?.data?.response?.docs);
-    setCurrentPage(1);
+    setLoading(true);
+    try {
+      const res = await fetchNewsData('');
+      updateNewsData(res?.data?.response?.docs);
+      setCurrentPage(1);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (

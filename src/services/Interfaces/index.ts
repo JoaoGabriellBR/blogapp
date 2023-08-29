@@ -31,4 +31,7 @@ export interface NewsCategory {
   setCurrentPage: (currentPage: number) => void;
   updateNewsCategory: (category: string) => void;
   updateNewsData: (news: any) => void;
+  loading: boolean;
+  setLoading: (value: boolean) => void;
+
 }

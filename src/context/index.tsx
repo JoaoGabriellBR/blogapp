@@ -7,6 +7,7 @@ const NewsCategoryContext = createContext<NewsCategory | null>(null);
 
 export const NewsCategoryProvider = ({ children }: any) => {
 
+  const [loading, setLoading] = useState(false);
   const [newsData, setNewsData] = useState<NewsItem[]>([]);
   const [newsCategory, setNewsCategory] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -15,7 +16,17 @@ export const NewsCategoryProvider = ({ children }: any) => {
   const updateNewsData = (news: any) => setNewsData(news);
 
   return (
-    <NewsCategoryContext.Provider value={{ newsCategory, updateNewsCategory, newsData, updateNewsData, currentPage, setCurrentPage }}>
+    <NewsCategoryContext.Provider
+      value={{
+        newsCategory,
+        updateNewsCategory,
+        newsData,
+        updateNewsData,
+        currentPage,
+        setCurrentPage,
+        loading,
+        setLoading,
+      }}>
       {children}
     </NewsCategoryContext.Provider>
   );
