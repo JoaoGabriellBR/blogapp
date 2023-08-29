@@ -14,9 +14,9 @@ export default function DropdownMobile() {
     const { updateNewsCategory, setCurrentPage }: any = useNewsCategory();
 
     const handleClickCategory = (value: string) => {
-      updateNewsCategory(value);
-      setCurrentPage(1);
-      closeMobileMenu();
+        updateNewsCategory(value);
+        setCurrentPage(1);
+        closeMobileMenu();
     }
 
     return (

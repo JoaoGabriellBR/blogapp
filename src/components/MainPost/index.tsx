@@ -3,15 +3,17 @@ import formattedDate from "@/services/formattedDate";
 import { PropsNewsItem } from "@/services/Interfaces";
 import Link from "next/link";
 
-export default function MainPost({ news }: PropsNewsItem) {
+export default function MainPost({ newsData }: PropsNewsItem) {
 
-  const { headline, snippet, multimedia, pub_date, web_url, byline, section_name } = news || {};
+  const { headline, snippet, multimedia, pub_date, web_url, byline, section_name } = newsData || {};
 
   const title = headline?.main;
   const description = snippet;
   const image = multimedia?.[0]?.url;
   const pubDate = pub_date;
   const author = byline?.person?.[0];
+
+  console.log(newsData)
 
   return (
     <>

@@ -3,7 +3,7 @@ import formattedDate from "@/services/formattedDate";
 import Link from "next/link";
 import { PropsNewsItem } from "@/services/Interfaces";
 
-export default function Post({ news }: PropsNewsItem) {
+export default function Post({ newsData }: PropsNewsItem) {
   const {
     headline,
     snippet,
@@ -12,7 +12,7 @@ export default function Post({ news }: PropsNewsItem) {
     web_url,
     byline,
     section_name,
-  } = news || {};
+  } = newsData || {};
 
   const title = headline?.main;
   const description = snippet;

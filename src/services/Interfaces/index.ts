@@ -15,7 +15,7 @@ export interface NewsItem {
 }
 
 export interface PropsNewsItem {
-  news: NewsItem;
+  newsData: NewsItem;
 }
 
 export interface PropsPagination {

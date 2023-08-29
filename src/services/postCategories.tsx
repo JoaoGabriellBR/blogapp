@@ -2,7 +2,6 @@ export const postCategories = [
   { title: "Artes", value: "Arts" },
   { title: "Automóveis", value: "Automobiles" },
   { title: "Ciência", value: "Science" },
-  { title: "Clima", value: "Weather" },
   { title: "Comida", value: "Food" },
   { title: "Educação", value: "Education" },
   { title: "Esportes", value: "Sports" },

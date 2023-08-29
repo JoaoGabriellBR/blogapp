@@ -5,7 +5,7 @@ export default async function fetchNewsData(newsCategory: string) {
     const res = await axios({
       method: "GET",
       url: "/noticias",
-      headers: { 
+      headers: {
         "Access-Control-Allow-Origin": "*",
         "category": newsCategory
       },

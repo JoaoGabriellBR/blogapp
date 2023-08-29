@@ -22,7 +22,6 @@ export default function Dropdown() {
     <div className="relative">
       <motion.p
         onMouseEnter={openDropdown}
-        // className="text-md flex flex-row justify-between items-center bg-transparent py-2 px-4 rounded-lg focus:outline-none hover:text-white"
         className="hidden md:flex flex-row justify-between items-center text-sm px-4 py-2 hover:white cursor-pointer"
         initial="closed"
         animate={isOpen ? "open" : "closed"}
