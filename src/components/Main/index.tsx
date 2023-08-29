@@ -7,29 +7,37 @@ import MainPost from "@/components/MainPost";
 import Post from "@/components/Post";
 import Pagination from "@/components/Pagination";
 import Loading from "@/components/Loading";
-import fetchNewsData from "@/services/fetchNewsData";
 import { NewsItem } from "@/services/Interfaces";
 import axios from "axios";
 
 export default function Main() {
   const [loading, setLoading] = useState(false);
-  const { newsCategory, newsData, updateNewsData, currentPage, setCurrentPage }: any = useNewsCategory();
-  const newsWithImage = newsData?.filter((news: any) => news?.multimedia?.length !== 0)[0];
+  const {
+    newsCategory,
+    newsData,
+    updateNewsData,
+    currentPage,
+    setCurrentPage
+  }: any = useNewsCategory();
+  const newsWithImage = newsData?.filter(
+    (news: any) => news?.multimedia?.length !== 0
+  )[0];
 
-  const handlePageChange = async (pageNumber: number) => {
-    setCurrentPage(pageNumber);
-    setLoading(true)
+  const buildApiUrl = (category: string, page: number) => {
+    const baseUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
+    const apiKey = "WCwDGgHrj9SFZsmhgzB2d4nvozkkZwOG";
+    const categoryQuery = category ? `&fq=section_name:${category}` : "";
+    return `${baseUrl}${categoryQuery}&api-key=${apiKey}&page=${page}`;
+  };
+
+  const handleApiRequest = async (apiUrl: string) => {
     try {
-      const baseUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
-      const apiKey = "WCwDGgHrj9SFZsmhgzB2d4nvozkkZwOG";
-      const apiWithCategory = `${baseUrl}&fq=section_name:${newsCategory}&api-key=${apiKey}&page=${currentPage}`;
-      const apiWithoutCategory = `${baseUrl}&api-key=${apiKey}&page=${currentPage}`;
-      const apiUrl = newsCategory ? apiWithCategory : apiWithoutCategory;
-
+      setLoading(true);
       const res = await axios.get(apiUrl);
-      updateNewsData(res?.data?.response?.docs?.reverse());
+      return res?.data?.response?.docs?.reverse();
     } catch (err) {
       console.log(err);
+      return [];
     } finally {
       setLoading(false);
     }
@@ -37,19 +45,20 @@ export default function Main() {
 
   const loadData = async () => {
     setLoading(true);
-    try {
-      const res = await fetchNewsData(newsCategory);
-      updateNewsData(res?.data?.response?.docs);
-      setLoading(false);
-    } catch (err) {
-      console.log(err);
-      setLoading(false);
-    }
+    const apiUrl = buildApiUrl(newsCategory, currentPage);
+    const newData = await handleApiRequest(apiUrl);
+    updateNewsData(newData);
+    setLoading(false);
+  };
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+    loadData();
   };
 
   useEffect(() => {
     loadData();
-  }, [newsCategory]);
+  }, [newsCategory, currentPage]);
 
   return (
     <>
