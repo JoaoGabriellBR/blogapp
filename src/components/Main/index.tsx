@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useNewsCategory } from "@/context";
 import MainPost from "@/components/MainPost";
 import Post from "@/components/Post";
 import Pagination from "@/components/Pagination";
 import Loading from "@/components/Loading";
 import { NewsItem } from "@/services/Interfaces";
-import axios from "axios";
+import { buildApiUrl, handleApiRequest } from "@/services/api";
 
 export default function Main() {
   const {
@@ -23,26 +23,6 @@ export default function Main() {
   const newsWithImage = newsData?.filter(
     (news: any) => news?.multimedia?.length !== 0
   )[0];
-
-  const buildApiUrl = (category: string, page: number) => {
-    const baseUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
-    const apiKey = "WCwDGgHrj9SFZsmhgzB2d4nvozkkZwOG";
-    const categoryQuery = category ? `&fq=section_name:${category}` : "";
-    return `${baseUrl}${categoryQuery}&api-key=${apiKey}&page=${page}`;
-  };
-
-  const handleApiRequest = async (apiUrl: string) => {
-    try {
-      setLoading(true);
-      const res = await axios.get(apiUrl);
-      return res?.data?.response?.docs?.reverse();
-    } catch (err) {
-      console.log(err);
-      return [];
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const loadData = async () => {
     setLoading(true);
