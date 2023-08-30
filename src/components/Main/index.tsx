@@ -8,28 +8,25 @@ import Post from "@/components/Post";
 import Pagination from "@/components/Pagination";
 import Loading from "@/components/Loading";
 import { NewsItem } from "@/services/Interfaces";
-import { buildApiUrl, handleApiRequest } from "@/services/api";
+import { useFetchNews } from "@/services/api";
 
 export default function Main() {
   const {
     newsCategory,
     newsData,
-    updateNewsData,
     currentPage,
     setCurrentPage,
     loading,
-    setLoading,
   }: any = useNewsCategory();
+
+  const fetchNews = useFetchNews(newsCategory, currentPage);
+
   const newsWithImage = newsData?.filter(
     (news: any) => news?.multimedia?.length !== 0
   )[0];
 
   const loadData = async () => {
-    setLoading(true);
-    const apiUrl = buildApiUrl(newsCategory, currentPage);
-    const newData = await handleApiRequest(apiUrl);
-    updateNewsData(newData);
-    setLoading(false);
+    await fetchNews();
   };
 
   const handlePageChange = (pageNumber: number) => {

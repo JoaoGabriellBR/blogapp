@@ -6,34 +6,27 @@ import { TbWorldBolt } from "react-icons/tb";
 import Link from "next/link";
 import { useNewsCategory } from "@/context";
 import { postCategories } from "@/services/postCategories";
-import fetchNewsData from "@/services/fetchNewsData";
+import { useFetchNews } from "@/services/api";
 
 export default function Header() {
 
-  const { updateNewsCategory, updateNewsData, setCurrentPage, setLoading }: any = useNewsCategory();
+  const { updateNewsCategory, setCurrentPage }: any = useNewsCategory();
+  const fetchNews = useFetchNews('', 1);
 
   const handleClickCategory = (value: string) => {
     updateNewsCategory(value);
     setCurrentPage(1);
   }
 
-  const loadData = async () => {
-    setLoading(true);
-    try {
-      const res = await fetchNewsData('');
-      updateNewsData(res?.data?.response?.docs);
-      setCurrentPage(1);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false);
-    }
-  }
+  const handleClickTitle = async () => {
+    setCurrentPage(1);
+    await fetchNews();
+  };
 
   return (
     <header className="py-7 w-full relative z-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-row justify-between items-center">
-        <div onClick={loadData} className="flex flex-row justify-between items-center space-x-1" data-aos="fade-right">
+        <div onClick={handleClickTitle} className="flex flex-row justify-between items-center space-x-1" data-aos="fade-right">
           <TbWorldBolt className="text-indigo-400 text-[1rem] font-bold" />
           <Link href="/">
             <h1 className="font-black cursor-pointer">

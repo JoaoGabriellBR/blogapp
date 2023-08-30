@@ -1,3 +1,4 @@
+import { useNewsCategory } from "@/context";
 import axios from "axios";
 
 export const buildApiUrl = (category: string | null, page: number) => {
@@ -15,4 +16,17 @@ export const handleApiRequest = async (apiUrl: string) => {
         console.log(err);
         return [];
     };
-}
+};
+
+export const useFetchNews = (category: string, page: number) => {
+    const { setLoading, updateNewsData }: any = useNewsCategory();
+
+    const fetchItem = async () => {
+        setLoading(true);
+        const apiUrl = buildApiUrl(category, page);
+        const newData = await handleApiRequest(apiUrl);
+        updateNewsData(newData);
+        setLoading(false);
+    }
+    return fetchItem;
+};
