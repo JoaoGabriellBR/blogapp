@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
@@ -5,12 +6,12 @@ import { postCategories } from "@/services/postCategories";
 import { useNewsCategory } from "@/context";
 
 export default function Dropdown() {
-  const [isOpen, setIsOpen] = useState(false);
+
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { updateNewsCategory, setCurrentPage }: any = useNewsCategory();
 
   const openDropdown = () => setIsOpen(!isOpen);
   const closeDropdown = () => setIsOpen(false);
-
-  const { updateNewsCategory, setCurrentPage }: any = useNewsCategory();
 
   const handleClickCategory = (value: string) => {
     updateNewsCategory(value);

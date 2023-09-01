@@ -7,7 +7,7 @@ import { useNewsCategory } from "@/context";
 
 export default function DropdownMobile() {
 
-    const [mobileMenu, setMobileMenu] = useState(false);
+    const [mobileMenu, setMobileMenu] = useState<boolean>(false);
     const openMobileMenu = () => setMobileMenu(!mobileMenu);
     const closeMobileMenu = () => setMobileMenu(false);
 

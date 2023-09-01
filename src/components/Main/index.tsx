@@ -22,7 +22,7 @@ export default function Main() {
   const fetchNews = useFetchNews(newsCategory, currentPage);
 
   const newsWithImage = newsData?.filter(
-    (news: any) => news?.multimedia?.length !== 0
+    (news: NewsItem) => news?.multimedia?.length !== 0
   )[0];
 
   const loadData = async () => {

@@ -2,6 +2,7 @@
 import formattedDate from "@/services/formattedDate";
 import { PropsNewsItem } from "@/services/Interfaces";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function MainPost({ newsData }: PropsNewsItem) {
 
@@ -13,17 +14,17 @@ export default function MainPost({ newsData }: PropsNewsItem) {
   const pubDate = pub_date;
   const author = byline?.person?.[0];
 
-  console.log(newsData)
-
   return (
     <>
       <div className="w-full min-h-[14rem]" data-aos="fade-up">
         <div className=" w-full h-full md:h-[15rem] flex flex-col md:flex-row justify-between items-start md:items-center">
           <div className="w-full md:w-6/12 h-full relative overflow-hidden mb-6 md:mb-0">
-            <img
+            <Image
               className="rounded-t-lg object-cover w-full h-full transition-transform duration-300 ease-in-out transform-gpu hover:scale-105"
               src={`https://www.nytimes.com/${image}`}
-              alt="Imagem"
+              alt="Imagem principal do artigo"
+              width={500}
+              height={500}
             />
           </div>
 

@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import formattedDate from "@/services/formattedDate";
 import Link from "next/link";
+import Image from "next/image";
 import { PropsNewsItem } from "@/services/Interfaces";
+import formattedDate from "@/services/formattedDate";
 
 export default function Post({ newsData }: PropsNewsItem) {
   const {
@@ -28,10 +29,12 @@ export default function Post({ newsData }: PropsNewsItem) {
       >
         {image && (
           <div className={`h-48 w-full mb-6 relative overflow-hidden`}>
-            <img
+            <Image
               className="rounded-t-lg object-cover w-full h-full transition-transform duration-300 ease-in-out transform-gpu hover:scale-105"
               src={`https://www.nytimes.com/${image}`}
-              alt="Imagem"
+              alt="Imagem principal do artigo"
+              width={300}
+              height={300}
             />
           </div>
         )}
