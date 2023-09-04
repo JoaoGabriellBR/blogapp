@@ -24,6 +24,11 @@ export interface PropsPagination {
   onPageChange: (value: number) => void;
 }
 
+export interface PropsLoading {
+  color: string;
+  size: string;
+}
+
 export interface NewsCategory {
   newsCategory: string;
   newsData: NewsItem[];

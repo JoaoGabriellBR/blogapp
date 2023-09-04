@@ -1,4 +1,6 @@
-export default function Loading({ color, size }: any) {
+import { PropsLoading } from "@/services/Interfaces";
+
+export default function Loading({ color, size }: PropsLoading) {
 
   const styles = `rounded-full animate-pulse ${color ? color : "dark:bg-indigo-500"
     } ${size ? size : "w-4 h-4"}`;

@@ -6,21 +6,20 @@ import { postCategories } from "@/services/postCategories";
 import { useNewsCategory } from "@/context";
 
 export default function Dropdown() {
-
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { updateNewsCategory, setCurrentPage }: any = useNewsCategory();
 
-  const openDropdown = () => setIsOpen(!isOpen);
+  const openDropdown = () => setIsOpen(true);
   const closeDropdown = () => setIsOpen(false);
 
   const handleClickCategory = (value: string) => {
     updateNewsCategory(value);
     setCurrentPage(1);
     closeDropdown();
-  }
+  };
 
   return (
-    <div className="relative">
+    <div className="relative" onMouseLeave={closeDropdown}>
       <motion.p
         onMouseEnter={openDropdown}
         className="hidden md:flex flex-row justify-between items-center text-sm px-4 py-2 hover:white cursor-pointer"
@@ -40,7 +39,7 @@ export default function Dropdown() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            onMouseLeave={closeDropdown}
+            onMouseEnter={openDropdown}
             className="absolute top-full left-0 mt-2 bg-white border border-gray-300 rounded shadow-md border-none"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -64,3 +63,4 @@ export default function Dropdown() {
     </div>
   );
 };
+
