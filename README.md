@@ -1,34 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+    <img width="200px" height="200px" src="https://github.com/JoaoGabriellBR/SuperHeroApp/assets/88870257/1cb73d1f-c07e-479f-b377-d0368c1fe3a6">
+</div>
 
-## Getting Started
+## Sobre o Projeto
 
-First, run the development server:
+<p>Site de noticias que utiliza a base de dados do jornal diário norte americano The New York Times.</p>
+
+<br>
+
+[![Website][Website]][Website-url]
+
+<br>
+
+![worldnews](https://github.com/JoaoGabriellBR/SuperHeroApp/assets/88870257/1e6f0d43-c704-4ae5-b8c3-d72cce9313b1)
+
+## 🛠 Tecnologias utilizadas
+
+- [React](https://reactjs.org/)
+- [NextJs](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS](https://tailwindcss.com)
+- [The New York Times](https://developer.nytimes.com)
+
+<br>
+
+## 💻 Como executar?
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+## Clonar o projeto
+
+$ git clone 
+https://github.com/JoaoGabriellBR/worldnews.git
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+## Entrar no diretório
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+$ cd worldnews
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
 
-## Learn More
+```bash
+## Instalar as dependências, se você utiliza NPM
+$ npm install
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Instalar as dependências, se você utiliza YARN
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+$ yarn add
 
-## Deploy on Vercel
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<!-- CONTACT -->
+## <h2>📧 Contato</h2>
+
+<br>
+
+[![Email][Email]][Email-url]
+[![Linkedin][Linkedin]][Linkedin-url]
+[![GitHub][GitHub]][GitHub-url]
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[Website]: https://img.shields.io/badge/site%20oficial-000000?style=for-the-badge
+[Website-url]: https://super-hero-app-beige.vercel.app
+
+[Email]: https://img.shields.io/badge/-gmail-white.svg?style=for-the-badge&logo=gmail
+[Email-url]: joaoname9@gmail.com
+
+[GitHub]: https://img.shields.io/badge/GitHub-0769AD?style=for-the-badge&logo=github
+[GitHub-url]: https://github.com/JoaoGabriellBR
+
+[Linkedin]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=blue
+[Linkedin-url]: https://www.linkedin.com/in/joaogabriel-silva
