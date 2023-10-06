@@ -1,10 +1,11 @@
 <div align="center">
-    <img width="200px" height="200px" src="https://github.com/JoaoGabriellBR/SuperHeroApp/assets/88870257/1cb73d1f-c07e-479f-b377-d0368c1fe3a6">
+    <img width="200px" height="200px" src="https://github.com/JoaoGabriellBR/worldnews/assets/88870257/ced7c125-8ef2-4273-b396-62c0859e87a0">
 </div>
 
 ## Sobre o Projeto
 
 <p>Site de noticias que utiliza a base de dados do jornal diário norte americano The New York Times.</p>
+
 
 <br>
 
@@ -12,7 +13,7 @@
 
 <br>
 
-![worldnews](https://github.com/JoaoGabriellBR/SuperHeroApp/assets/88870257/1e6f0d43-c704-4ae5-b8c3-d72cce9313b1)
+![worldnews](https://github.com/JoaoGabriellBR/worldnews/assets/88870257/7a9f40b6-afb6-4ad7-8d8c-9597c123a3a9)
 
 ## 🛠 Tecnologias utilizadas
 
@@ -65,7 +66,7 @@ $ yarn add
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [Website]: https://img.shields.io/badge/site%20oficial-000000?style=for-the-badge
-[Website-url]: https://super-hero-app-beige.vercel.app
+[Website-url]: https://siteworldnews.vercel.app
 
 [Email]: https://img.shields.io/badge/-gmail-white.svg?style=for-the-badge&logo=gmail
 [Email-url]: joaoname9@gmail.com
